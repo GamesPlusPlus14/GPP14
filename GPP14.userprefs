@@ -1,12 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ItemTarget.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerControl.cs">
     <Files>
+      <File FileName="Assets\Scripts\Pickup.cs" Line="16" Column="3" />
       <File FileName="Assets\Scripts\Spawn.cs" Line="37" Column="21" />
-      <File FileName="Assets\Scripts\Projectile.cs" Line="17" Column="68" />
-      <File FileName="Assets\Scripts\Pickup.cs" Line="20" Column="30" />
-      <File FileName="Assets\Scripts\Inventory.cs" Line="10" Column="16" />
-      <File FileName="Assets\Scripts\ItemTarget.cs" Line="25" Column="37" />
+      <File FileName="Assets\Scripts\Projectile.cs" Line="48" Column="3" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="12" Column="34" />
+      <File FileName="Assets\Scripts\ItemTarget.cs" Line="14" Column="36" />
+      <File FileName="Assets\Scripts\PlayerControl.cs" Line="53" Column="115" />
+      <File FileName="Assets\Scripts\Statics.cs" Line="18" Column="19" />
+      <File FileName="Assets\Scripts\GameController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
