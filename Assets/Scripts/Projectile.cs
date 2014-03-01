@@ -44,6 +44,7 @@ public class Projectile : MonoBehaviour {
 		if (other.gameObject.tag == "Player")
 		{
 			Destroy(other.gameObject);
+            Statics.playerIsDead = true;
 		}
 	}
 

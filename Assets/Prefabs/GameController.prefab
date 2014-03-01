@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8846bb4e49234f47a2a872292e95c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goBoundingBox: {fileID: 100000, guid: 8ad1fd04d7b87d54e9836e3f763151e7, type: 2}
+  goPlayer: {fileID: 100000, guid: ca7915b7f0d2acc4a91defe5d3c2f75b, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

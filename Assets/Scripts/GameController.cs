@@ -3,14 +3,12 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
-    public GameObject goBoundingBox;
-
+    public GameObject goPlayer;
 
 	// Use this for initialization
 	void Awake () 
     {
-
-        print("Height in Unity " + Statics.heightInUnity + "  Width in Unity " + Statics.widthInUnity);
+        Statics.playerIsDead = false;
         DontDestroyOnLoad(gameObject);
         //if (Application.loadedLevel == 0)
         //{
@@ -18,15 +16,18 @@ public class GameController : MonoBehaviour {
         //}
         //else
         //{
-            GameObject cloneWest = Instantiate(goBoundingBox, new Vector3((-Statics.widthInUnity/2.0f) - 1.0f, 0.0f, -1.0f), Quaternion.identity) as GameObject;
-            cloneWest.GetComponent<BoxCollider2D>().size = new Vector2(2.0f, Statics.heightInUnity);
+
         //}
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-	    
+        if (Statics.playerIsDead)
+        {
+            StartCoroutine(Respawn());
+            Statics.playerIsDead = false;
+        }
 	}
 
     IEnumerator OneOrTwoPlayers()
@@ -42,6 +43,28 @@ public class GameController : MonoBehaviour {
                 else
                     twoPlayer = true;
                 }
+            yield return null;
+        }
+    }
+
+    IEnumerator Respawn()
+    {
+        bool stilldead = true;
+        print("getting to coroutine");
+
+        while (stilldead)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                print("Pressed A");
+                foreach (GameObject go in GameObject.FindGameObjectsWithTag(Statics.Projectile))
+                {
+                    Destroy(go);
+                }
+                GameObject clone = Instantiate(goPlayer, Vector3.zero, Quaternion.identity) as GameObject;
+                GameObject.FindWithTag(Statics.ViewWindow).transform.position = Vector3.zero;
+                stilldead = false;
+            }
             yield return null;
         }
     }
