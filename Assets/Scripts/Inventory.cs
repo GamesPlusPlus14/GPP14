@@ -4,20 +4,20 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour {
 
-	public List<GameObject> inventory;
+	public List<string> inventory;
 
 	// Use this for initialization
 	void Start () 
 	{
-		inventory = new List<GameObject>();
+		inventory = new List<string>();
 	}
 
-	public void AddItem(GameObject item)
+	public void AddItem(string item)
 	{
 		inventory.Add(item);
 	}
 
-	public void RemoveItem(GameObject item)
+	public void RemoveItem(string item)
 	{
 		inventory.Remove(item);
 	}

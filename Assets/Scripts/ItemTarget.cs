@@ -3,12 +3,12 @@ using System.Collections;
 
 public class ItemTarget : MonoBehaviour {
 	
-	public GameObject ItemToReceive;
+	public string ItemToReceive;
 	Inventory inven;
 
 	// Use this for initialization
 	void Start () {
-		inven = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<Inventory>();
+		inven = GameObject.FindGameObjectWithTag(Statics.InventoryManager).GetComponent<Inventory>();
 	}
 	
 	// Update is called once per frame

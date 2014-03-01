@@ -14,7 +14,7 @@ GameObject:
   - 50: {fileID: 5000000}
   m_Layer: 0
   m_Name: ItemTarget
-  m_TagString: Untagged
+  m_TagString: ItemTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ Rigidbody2D:
   m_AngularDrag: .0500000007
   m_GravityScale: 0
   m_FixedAngle: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81c7d0a40895ac4e8c941eb4f8af0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemToReceive: {fileID: 0}
+  ItemToReceive: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

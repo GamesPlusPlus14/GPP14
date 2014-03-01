@@ -4,6 +4,9 @@
 TagManager:
   tags:
   - ViewWindow
+  - InventoryManager
+  - Pickup
+  - ItemTarget
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -41,4 +44,16 @@ TagManager:
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Background
+    userID: 1
+    uniqueID: 3748303477
+    locked: 0
+  - name: Foreground
+    userID: 2
+    uniqueID: 3563653669
+    locked: 0
+  - name: Player
+    userID: 3
+    uniqueID: 3429256679
     locked: 0

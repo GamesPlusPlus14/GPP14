@@ -9,14 +9,14 @@ public class Pickup : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		inven = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<Inventory>();
+		inven = GameObject.FindGameObjectWithTag(Statics.InventoryManager).GetComponent<Inventory>();
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Pickup")
 		{
-			inven.AddItem(other.gameObject);
+			inven.AddItem(other.gameObject.name);
 			Destroy(other.gameObject);
 		}
 	}

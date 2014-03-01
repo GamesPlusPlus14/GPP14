@@ -14,5 +14,7 @@ public class Statics
 
     public static readonly string ViewWindow = "ViewWindow";
 
+	public static readonly string InventoryManager = "InventoryManager";
+
     public static bool onePlayer { get; set;}
 }
