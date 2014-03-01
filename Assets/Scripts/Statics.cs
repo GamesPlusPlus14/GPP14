@@ -10,4 +10,7 @@ public class Statics
     public static readonly string WHorz1 = "WindowHorizontal1";
     public static readonly string WVert1 = "WindowVertical1";
 
+    public static readonly string ViewWindow = "ViewWindow";
+
+    public static bool onePlayer { get; set;}
 }
