@@ -4,27 +4,23 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 
     public GameObject goBoundingBox;
-    private float heightInUnity;
-    private float widthInUnity;
 
 
 	// Use this for initialization
 	void Awake () 
     {
-        heightInUnity = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, Screen.height, 0.0f)).y - Camera.main.ScreenToWorldPoint(Vector3.zero).y;
-        widthInUnity = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0.0f)).x - Camera.main.ScreenToWorldPoint(Vector3.zero).x;
 
-        print("Height in Unity " + heightInUnity + "  Width in Unity " + widthInUnity);
+        print("Height in Unity " + Statics.heightInUnity + "  Width in Unity " + Statics.widthInUnity);
         DontDestroyOnLoad(gameObject);
-        if (Application.loadedLevel == 1)
-        {
-            StartCoroutine(OneOrTwoPlayers());
-        }
-        else
-        {
-            GameObject cloneWest = Instantiate(goBoundingBox, new Vector3((-widthInUnity/2.0f) - 1.0f, 0.0f, -1.0f), Quaternion.identity) as GameObject;
-            cloneWest.GetComponent<BoxCollider2D>().size = new Vector2(2.0f, heightInUnity);
-        }
+        //if (Application.loadedLevel == 0)
+        //{
+        //    StartCoroutine(OneOrTwoPlayers());
+        //}
+        //else
+        //{
+            GameObject cloneWest = Instantiate(goBoundingBox, new Vector3((-Statics.widthInUnity/2.0f) - 1.0f, 0.0f, -1.0f), Quaternion.identity) as GameObject;
+            cloneWest.GetComponent<BoxCollider2D>().size = new Vector2(2.0f, Statics.heightInUnity);
+        //}
 	}
 	
 	// Update is called once per frame

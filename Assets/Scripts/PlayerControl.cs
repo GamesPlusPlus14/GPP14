@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour {
     private float width;
     private Transform transPlayer;
     private Transform transWindow;
+    private Rigidbody2D rigidWindow;
 
 	// Use this for initialization
 	void Start () 
@@ -19,6 +20,7 @@ public class PlayerControl : MonoBehaviour {
         // Localizing the transforms
         transPlayer = transform;
         transWindow = GameObject.FindWithTag(Statics.ViewWindow).transform;
+        //rigidWindow = GameObject.FindWithTag(Statics.ViewWindow).GetComponent<Rigidbody2D>();
 
 	}
 	
@@ -30,10 +32,35 @@ public class PlayerControl : MonoBehaviour {
 
     void HandleInput()
     {
-        transPlayer.position += new Vector3(Input.GetAxisRaw(Statics.PHorz), Input.GetAxisRaw(Statics.PVert), 0.0f).normalized * playerSpeed * Time.deltaTime;
+
+        Vector3 movePlayer = new Vector3(Input.GetAxisRaw(Statics.PHorz), Input.GetAxisRaw(Statics.PVert), 0.0f).normalized * playerSpeed * Time.deltaTime;
+        if (NextMoveInBounds(transPlayer, movePlayer, 0.125f, 0.125f))
+        {
+            transPlayer.position += movePlayer;
+        }
+                
+        Vector3 moveWindow;
+        print(transPlayer.position + movePlayer);
         if (Statics.onePlayer)
-            transWindow.position += new Vector3(Input.GetAxisRaw(Statics.WHorz1), Input.GetAxisRaw(Statics.WVert1), 0.0f).normalized * windowSpeed * Time.deltaTime;
+        {
+            moveWindow = new Vector2(Input.GetAxisRaw(Statics.WHorz1), Input.GetAxisRaw(Statics.WVert1)).normalized * windowSpeed * Time.deltaTime;
+        }
         else
-            transWindow.position += new Vector3(Input.GetAxisRaw(Statics.WHorz), Input.GetAxisRaw(Statics.WVert), 0.0f).normalized * windowSpeed * Time.deltaTime;
+        {
+            moveWindow = new Vector2(Input.GetAxisRaw(Statics.WHorz), Input.GetAxisRaw(Statics.WVert)).normalized * playerSpeed * Time.deltaTime;
+        }
+       
+        if (NextMoveInBounds(transWindow, moveWindow, 0.5f, 0.5f))
+        {
+            transWindow.position += moveWindow;
+        }
+    }
+
+    bool NextMoveInBounds(Transform trans, Vector3 nextMove, float halfObjWidth, float halfObjHeight)
+    {
+        if ((trans.position.x + nextMove.x - halfObjWidth >= -Statics.widthInUnity/2.0f) && (trans.position.x + nextMove.x + halfObjWidth < Statics.widthInUnity/2.0f) && (trans.position.y + nextMove.y - halfObjHeight >= -Statics.heightInUnity/2.0f) && (trans.position.y + nextMove.y + halfObjHeight < Statics.heightInUnity/2.0f))
+            return true;
+        else
+            return false;
     }
 }
