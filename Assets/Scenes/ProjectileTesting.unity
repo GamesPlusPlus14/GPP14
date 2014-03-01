@@ -311,7 +311,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: 47520100165f2c34e8eb372e6d99fdd7, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47520100165f2c34e8eb372e6d99fdd7, type: 2}
       propertyPath: m_LocalScale.x
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba22012cc2d675c4d874add7e119d7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabToSpawn: {fileID: 100000, guid: 78c16eaa379b1e640bd9674234de3831, type: 2}
+  PrefabToSpawn: []
   MinSpawnTimer: 2
   MaxSpawnTimer: 5
 --- !u!4 &186809280
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba22012cc2d675c4d874add7e119d7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabToSpawn: {fileID: 100000, guid: 2491d0a5e2409a4428df6f4944c71c28, type: 2}
+  PrefabToSpawn: []
   MinSpawnTimer: .5
   MaxSpawnTimer: 3
 --- !u!4 &277680595
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba22012cc2d675c4d874add7e119d7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabToSpawn: {fileID: 100000, guid: df1de55027bdaf34b9809694772f6cd4, type: 2}
+  PrefabToSpawn: []
   MinSpawnTimer: 2
   MaxSpawnTimer: 5
 --- !u!4 &1522873949
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba22012cc2d675c4d874add7e119d7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabToSpawn: {fileID: 100000, guid: a54024b7e716e30479117774cbe6a82a, type: 2}
+  PrefabToSpawn: []
   MinSpawnTimer: 2
   MaxSpawnTimer: 5
 --- !u!4 &1868615703
@@ -1249,7 +1249,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 117133042}
   m_GameObject: {fileID: 2137230013}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255

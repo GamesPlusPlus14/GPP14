@@ -13,7 +13,7 @@ GameObject:
   - 58: {fileID: 5800000}
   - 50: {fileID: 5000000}
   m_Layer: 0
-  m_Name: TestProjectileUp
+  m_Name: LawnMower3
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 40
-  DirectionRange1: {x: 0, y: 0, z: 0}
-  DirectionRange2: {x: 0, y: 0, z: 0}
+  DirectionRange1: {x: 0, y: 1, z: 0}
+  DirectionRange2: {x: 1, y: 0, z: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
