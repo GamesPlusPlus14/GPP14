@@ -1,5 +1,6 @@
-﻿
-public class Statics
+﻿using UnityEngine;
+
+public class Statics : MonoBehaviour
 {
     public static readonly string PHorz = "PlayerHorizontal";
     public static readonly string PVert = "PlayerVertical";
@@ -15,4 +16,14 @@ public class Statics
     public static readonly string ViewWindow = "ViewWindow";
 
     public static bool onePlayer { get; set;}
+
+    public static float heightInUnity { get; set; }
+    public static float widthInUnity { get; set; }
+
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        heightInUnity = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, Screen.height, 0.0f)).y - Camera.main.ScreenToWorldPoint(Vector3.zero).y;
+        widthInUnity = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0.0f)).x - Camera.main.ScreenToWorldPoint(Vector3.zero).x;
+    }
 }
