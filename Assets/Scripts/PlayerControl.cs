@@ -5,23 +5,21 @@ public class PlayerControl : MonoBehaviour {
 
     public float playerSpeed = 5.0f;
     public float windowSpeed = 10.0f;
-    private float aspect = Screen.width / Screen.height;
-    private float height = .5f;
+    private float aspect;
+    private float height = 1.0f;
     private float width;
     private Transform transPlayer;
-    private Transform transCamera;
+    private Transform transWindow;
 
 	// Use this for initialization
 	void Start () 
     {
+        aspect = (float)Screen.width / (float)Screen.height;
+
         // Localizing the transforms
         transPlayer = transform;
-        transCamera = Camera.main.transform;
+        transWindow = GameObject.FindWithTag(Statics.ViewWindow).transform;
 
-        // Get the width from the height and aspect
-        width = height / aspect;
-        // Set the viewport to a square
-        Camera.main.aspect = 1 / 2;
 	}
 	
 	// Update is called once per frame
@@ -32,7 +30,10 @@ public class PlayerControl : MonoBehaviour {
 
     void HandleInput()
     {
-        transPlayer.position = new Vector3(Input.GetAxisRaw(Statics.PHorz), Input.GetAxisRaw(Statics.PVert), 0.0f).normalized * playerSpeed;
-        transCamera.position = new Vector3(Input.GetAxisRaw(Statics.WHorz), Input.GetAxisRaw(Statics.WVert), 0.0f).normalized * windowSpeed;
+        transPlayer.position += new Vector3(Input.GetAxisRaw(Statics.PHorz), Input.GetAxisRaw(Statics.PVert), 0.0f).normalized * playerSpeed * Time.deltaTime;
+        if (Statics.onePlayer)
+            transWindow.position += new Vector3(Input.GetAxisRaw(Statics.WHorz1), Input.GetAxisRaw(Statics.WVert1), 0.0f).normalized * windowSpeed * Time.deltaTime;
+        else
+            transWindow.position += new Vector3(Input.GetAxisRaw(Statics.WHorz), Input.GetAxisRaw(Statics.WVert), 0.0f).normalized * windowSpeed * Time.deltaTime;
     }
 }
