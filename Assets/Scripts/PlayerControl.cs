@@ -40,7 +40,7 @@ public class PlayerControl : MonoBehaviour {
         }
                 
         Vector3 moveWindow;
-        print(transPlayer.position + movePlayer);
+
         if (Statics.onePlayer)
         {
             moveWindow = new Vector2(Input.GetAxisRaw(Statics.WHorz1), Input.GetAxisRaw(Statics.WVert1)).normalized * windowSpeed * Time.deltaTime;
@@ -50,7 +50,7 @@ public class PlayerControl : MonoBehaviour {
             moveWindow = new Vector2(Input.GetAxisRaw(Statics.WHorz), Input.GetAxisRaw(Statics.WVert)).normalized * playerSpeed * Time.deltaTime;
         }
        
-        if (NextMoveInBounds(transWindow, moveWindow, 0.5f, 0.5f))
+        if (NextMoveInBounds(transWindow, moveWindow, transWindow.localScale.x/2.0f, transWindow.localScale.y/2.0f))
         {
             transWindow.position += moveWindow;
         }
