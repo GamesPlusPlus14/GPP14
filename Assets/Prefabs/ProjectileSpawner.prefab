@@ -35,12 +35,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8681ef681b6383f40a710863dbabe42d, type: 3}
+  m_Script: {fileID: 11500000, guid: ba22012cc2d675c4d874add7e119d7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabToSpawn: {fileID: 0}
-  MinSpawnTimer: 2
-  MaxSpawnTimer: 4
+  MinSpawnTimer: 0
+  MaxSpawnTimer: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

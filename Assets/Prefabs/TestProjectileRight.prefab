@@ -64,12 +64,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7344dc39bf9f83045ac9c8d37f1dc4e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 952920b2c1a2f0f49981c63f3060a478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 4
-  DirectionRange1: {x: 1, y: 0, z: 0}
-  DirectionRange2: {x: 1, y: 0, z: 0}
+  DirectionRange1: {x: 0, y: 0, z: 0}
+  DirectionRange2: {x: 0, y: 0, z: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: a5b41196b339b3148a76d530fb9a5c3e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 86dd91d3caf481a4d83a107aaf2ec168, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
