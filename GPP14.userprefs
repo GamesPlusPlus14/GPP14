@@ -1,8 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Spawn.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Pickup.cs">
     <Files>
-      <File FileName="Assets\Scripts\Spawn.cs" Line="33" Column="14" />
+      <File FileName="Assets\Scripts\Spawn.cs" Line="37" Column="21" />
+      <File FileName="Assets\Scripts\Projectile.cs" Line="17" Column="68" />
+      <File FileName="Assets\Scripts\Pickup.cs" Line="12" Column="37" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="10" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

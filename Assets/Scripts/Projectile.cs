@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour {
 		direction.x = Random.Range(DirectionRange1.x, DirectionRange2.x);
 		direction.y = Random.Range(DirectionRange1.y, DirectionRange2.y);
 		direction.z = 0;
-	
+
 		direction.Normalize();
 	}
 	
