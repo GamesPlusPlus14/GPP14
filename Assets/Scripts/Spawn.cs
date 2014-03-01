@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Spawn : MonoBehaviour {
 
-	public GameObject PrefabToSpawn;
+    public List<GameObject> PrefabToSpawn = new List<GameObject>();
 	public float MinSpawnTimer;
 	public float MaxSpawnTimer;
 	
@@ -29,7 +30,8 @@ public class Spawn : MonoBehaviour {
 
 		if (timer >= spawnTimer)
 		{
-			Instantiate(PrefabToSpawn, transform.position, Quaternion.identity);
+            int index = Random.Range(0, PrefabToSpawn.Count);
+			Instantiate(PrefabToSpawn[index], transform.position, Quaternion.identity);
 			timer = 0;
 		}
 
