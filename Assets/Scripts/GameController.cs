@@ -50,13 +50,10 @@ public class GameController : MonoBehaviour {
     IEnumerator Respawn()
     {
         bool stilldead = true;
-        print("getting to coroutine");
-
         while (stilldead)
         {
             if (Input.GetButtonDown(Statics.AButton))
             {
-                print("Pressed A");
                 foreach (GameObject go in GameObject.FindGameObjectsWithTag(Statics.Projectile))
                 {
                     Destroy(go);
