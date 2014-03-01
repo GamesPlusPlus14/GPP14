@@ -6,7 +6,7 @@ public class Spawn : MonoBehaviour {
 	public GameObject PrefabToSpawn;
 	public float MinSpawnTimer;
 	public float MaxSpawnTimer;
-
+	
 	float spawnTimer;
 	float timer;
 
@@ -29,7 +29,7 @@ public class Spawn : MonoBehaviour {
 
 		if (timer >= spawnTimer)
 		{
-			Instantiate(PrefabToSpawn);
+			Instantiate(PrefabToSpawn, transform.position, Quaternion.identity);
 			timer = 0;
 		}
 
