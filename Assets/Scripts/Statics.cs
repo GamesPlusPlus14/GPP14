@@ -14,13 +14,14 @@ public class Statics : MonoBehaviour
     public static readonly string AButton = "AButton";
 
     public static readonly string ViewWindow = "ViewWindow";
-
 	public static readonly string InventoryManager = "InventoryManager";
+    public static readonly string Projectile = "Projectile";
 
     public static bool onePlayer { get; set;}
 
     public static float heightInUnity { get; set; }
     public static float widthInUnity { get; set; }
+    public static bool playerIsDead { get; set; }
 
     void Awake()
     {
