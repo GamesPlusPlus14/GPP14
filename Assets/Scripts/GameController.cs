@@ -4,6 +4,7 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 
     public GameObject goPlayer;
+ 
 
 	// Use this for initialization
 	void Awake () 
