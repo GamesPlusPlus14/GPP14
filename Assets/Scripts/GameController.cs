@@ -12,15 +12,15 @@ public class GameController : MonoBehaviour {
 
         print("Height in Unity " + Statics.heightInUnity + "  Width in Unity " + Statics.widthInUnity);
         DontDestroyOnLoad(gameObject);
-        if (Application.loadedLevel == 1)
-        {
-            StartCoroutine(OneOrTwoPlayers());
-        }
-        else
-        {
+        //if (Application.loadedLevel == 0)
+        //{
+        //    StartCoroutine(OneOrTwoPlayers());
+        //}
+        //else
+        //{
             GameObject cloneWest = Instantiate(goBoundingBox, new Vector3((-Statics.widthInUnity/2.0f) - 1.0f, 0.0f, -1.0f), Quaternion.identity) as GameObject;
             cloneWest.GetComponent<BoxCollider2D>().size = new Vector2(2.0f, Statics.heightInUnity);
-        }
+        //}
 	}
 	
 	// Update is called once per frame
