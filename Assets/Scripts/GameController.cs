@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour {
 
         while (stilldead)
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetButtonDown(Statics.AButton))
             {
                 print("Pressed A");
                 foreach (GameObject go in GameObject.FindGameObjectsWithTag(Statics.Projectile))
