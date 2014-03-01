@@ -1,12 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
     public GameObject goPlayer;
+	public List<GameObject> Items;
+	public GameObject levelText;
+
+	int currentLevel;
+	public bool retrievedAllItems;
+
+	void Start()
+	{
+		levelText = GameObject.FindWithTag("GUIText");
+		Items = new List<GameObject>();
+		retrievedAllItems = false;
+
+		currentLevel = 0;
+	}
 
 	// Use this for initialization
-	void Awake () 
+	void Awake ()
     {
         Statics.playerIsDead = false;
         DontDestroyOnLoad(gameObject);
@@ -28,6 +43,23 @@ public class GameController : MonoBehaviour {
             StartCoroutine(Respawn());
             Statics.playerIsDead = false;
         }
+
+		// Check if the player reached a new level
+		if (retrievedAllItems)
+		{
+			StartCoroutine(Respawn());
+			levelText.transform.parent.gameObject.SetActive(true);
+			levelText.guiText.text = "Level " + currentLevel.ToString();
+			retrievedAllItems = false;
+
+			StartCoroutine(ShutOffGUI());
+		}
+	}
+
+	IEnumerator ShutOffGUI()
+	{
+		yield return new WaitForSeconds(3f);
+		levelText.transform.parent.gameObject.SetActive(false);
 	}
 
     IEnumerator OneOrTwoPlayers()
