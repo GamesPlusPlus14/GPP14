@@ -13,7 +13,7 @@ GameObject:
   - 82: {fileID: 8200002}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,6 +186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goPlayer: {fileID: 100000, guid: ca7915b7f0d2acc4a91defe5d3c2f75b, type: 2}
+  Items: []
+  levelText: {fileID: 0}
+  retrievedAllItems: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

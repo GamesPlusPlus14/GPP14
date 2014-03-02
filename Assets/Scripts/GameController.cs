@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GameController : MonoBehaviour {
 
     public GameObject goPlayer;
-<<<<<<< HEAD
+
 	public List<GameObject> Items;
 	public GameObject levelText;
 
@@ -20,9 +20,7 @@ public class GameController : MonoBehaviour {
 
 		currentLevel = 0;
 	}
-=======
- 
->>>>>>> 8defcb5dd29e038252edcb4d45fa10bcdb6efdea
+
 
 	// Use this for initialization
 	void Awake ()
