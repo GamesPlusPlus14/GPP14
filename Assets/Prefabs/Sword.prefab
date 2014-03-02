@@ -12,8 +12,8 @@ GameObject:
   - 50: {fileID: 5000000}
   - 61: {fileID: 6100000}
   m_Layer: 0
-  m_Name: Wine
-  m_TagString: Pickup
+  m_Name: Sword
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.51784635, y: 1.23287749, z: 0}
+  m_LocalPosition: {x: -1.22565162, y: -1.15362716, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,8 +53,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .189999998, y: .629999995}
-  m_Center: {x: -.0299999993, y: .00999999978}
+  m_Size: {x: .13807492, y: 1.02054715}
+  m_Center: {x: -.0127446651, y: .00440073013}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_SortingLayerID: 3563653669
-  m_Sprite: {fileID: 21300000, guid: 4d7c03f65b3c0ca41a13accd3903df03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7e562db3c1c83c4e913c3c73691ffdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
