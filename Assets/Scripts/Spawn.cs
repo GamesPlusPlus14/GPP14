@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class Spawn : MonoBehaviour {
 
     public List<GameObject> PrefabToSpawn = new List<GameObject>();
-	private static float MinSpawnTimer = 6;
-	private static float MaxSpawnTimer = 12;
+	private static float MinSpawnTimer = 5;
+	private static float MaxSpawnTimer = 10;
 	
 	float spawnTimer;
 	float timer;
@@ -37,6 +37,7 @@ public class Spawn : MonoBehaviour {
                 int index = Random.Range(0, PrefabToSpawn.Count);
                 Instantiate(PrefabToSpawn[index], transform.position, Quaternion.identity);
                 timer = 0;
+                spawnTimer = Random.Range(MinSpawnTimer, MaxSpawnTimer);
             }
         }
 	}
@@ -50,7 +51,15 @@ public class Spawn : MonoBehaviour {
         if (MinSpawnTimer > 1)
         {
             MinSpawnTimer--;
+            print(MinSpawnTimer);
             MaxSpawnTimer = MinSpawnTimer * 2.0f;
+            print(MaxSpawnTimer);
         }
+    }
+
+    public static void ResetTimers()
+    {
+        MinSpawnTimer = 5;
+        MaxSpawnTimer = 10;
     }
 }

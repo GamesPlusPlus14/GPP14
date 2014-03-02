@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.12425327, y: -5.67282391, z: 0}
+  m_LocalPosition: {x: -7.96124458, y: -5.54277515, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41,8 +41,8 @@ MonoBehaviour:
   PrefabToSpawn:
   - {fileID: 100000, guid: a54024b7e716e30479117774cbe6a82a, type: 2}
   - {fileID: 100000, guid: 0c2c40b2bda77b249a0374ffdfabb829, type: 2}
-  MinSpawnTimer: .5
-  MaxSpawnTimer: 3
+  - {fileID: 100000, guid: 2f5e64ea3f3f5504e9be0962ff80b1c5, type: 2}
+  - {fileID: 100000, guid: 6a61a568b82a52748988c6fa68e533bf, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

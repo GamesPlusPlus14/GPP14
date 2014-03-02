@@ -6,23 +6,24 @@ public class GameController : MonoBehaviour {
 
     public GameObject goPlayer;
 
-	public List<GameObject> Items;
+	public List<GameObject> Items = new List<GameObject>();
 	public GameObject levelText;
     public GameObject goGUI;
     public GameObject theLips;
     private Transform trnLips;
     private ItemTarget scriptItemTarget;
+    private Inventory scriptInv;
 
 	int currentLevel;
 	public bool retrievedAllItems;
 
 	void Start()
 	{
-		Items = new List<GameObject>();
 		retrievedAllItems = false;
         scriptItemTarget = theLips.GetComponent<ItemTarget>();
         trnLips = theLips.transform;
-		currentLevel = 0;
+        scriptInv = GameObject.FindWithTag("InventoryManager").GetComponent<Inventory>();
+		currentLevel = 1;
 	}
 
 
@@ -31,14 +32,6 @@ public class GameController : MonoBehaviour {
     {
         Statics.playerIsDead = false;
         DontDestroyOnLoad(gameObject);
-        //if (Application.loadedLevel == 0)
-        //{
-        //    StartCoroutine(OneOrTwoPlayers());
-        //}
-        //else
-        //{
-
-        //}
 	}
 	
 	// Update is called once per frame
@@ -55,6 +48,7 @@ public class GameController : MonoBehaviour {
 		{
             StartCoroutine(NextLevel());
 		}
+
 	}
 
     IEnumerator OneOrTwoPlayers()
@@ -76,12 +70,20 @@ public class GameController : MonoBehaviour {
 
     IEnumerator Respawn()
     {
+        scriptInv.inventory.Clear();
         bool stilldead = true;
         while (stilldead)
         {
             if (Input.GetButtonDown(Statics.AButton))
             {
                 DoTheRespawning();
+                if (GameObject.FindWithTag("Pickup") == null)
+                {
+                    int index = Random.Range(0, Items.Count);
+                    GameObject targetClone = Instantiate(Items[index], new Vector3(Random.Range(-Statics.widthInUnity / 2, Statics.widthInUnity / 2), Random.Range(-Statics.heightInUnity / 2, Statics.heightInUnity / 2), 0.0f), Quaternion.identity) as GameObject;
+                }
+                Spawn.ResetTimers();
+                currentLevel = 1;
                 stilldead = false;
             }
             yield return null;
@@ -100,14 +102,16 @@ public class GameController : MonoBehaviour {
 
     IEnumerator NextLevel()
     {
-        goGUI.SetActive(true);
+        currentLevel++;
         levelText.guiText.text = "Level " + currentLevel.ToString();
+        goGUI.SetActive(true);
         retrievedAllItems = false;
         Spawn.UpdateTimers();
         Statics.gamePaused = true;
         Destroy(GameObject.FindWithTag("Player"));
-        yield return new WaitForSeconds(3f);
         DoTheRespawning();
+        scriptInv.inventory.Clear();
+        yield return new WaitForSeconds(3f);
         Statics.gamePaused = false;
         levelText.transform.parent.gameObject.SetActive(false);
         SpawnNewItemAndLips();

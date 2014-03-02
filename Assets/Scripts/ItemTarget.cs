@@ -30,7 +30,7 @@ public class ItemTarget : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			if (inven.inventory.Contains(ItemToReceive))
+			if (inven.inventory.Count > 0)
 			{
                 mySource.Play();
 				inven.RemoveItem(ItemToReceive);

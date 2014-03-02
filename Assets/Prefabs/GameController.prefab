@@ -269,9 +269,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goPlayer: {fileID: 100000, guid: ca7915b7f0d2acc4a91defe5d3c2f75b, type: 2}
-  Items: []
+  Items:
+  - {fileID: 100000, guid: f21291f3f051a074d811d188f8455dfd, type: 2}
+  - {fileID: 100000, guid: b823286bafda16444b436cb737e09c7c, type: 2}
+  - {fileID: 100000, guid: 80e64a9a80feac24181d69be0b1878ed, type: 2}
+  - {fileID: 100000, guid: 00d6744b013172440aa7146532687fec, type: 2}
   levelText: {fileID: 100008}
   goGUI: {fileID: 100004}
+  theLips: {fileID: 0}
   retrievedAllItems: 0
 --- !u!114 &11400002
 MonoBehaviour:
