@@ -8,16 +8,20 @@ public class GameController : MonoBehaviour {
 
 	public List<GameObject> Items;
 	public GameObject levelText;
+    public GameObject goGUI;
+    public GameObject theLips;
+    private Transform trnLips;
+    private ItemTarget scriptItemTarget;
 
 	int currentLevel;
 	public bool retrievedAllItems;
 
 	void Start()
 	{
-		levelText = GameObject.FindWithTag("GUIText");
 		Items = new List<GameObject>();
 		retrievedAllItems = false;
-
+        scriptItemTarget = theLips.GetComponent<ItemTarget>();
+        trnLips = theLips.transform;
 		currentLevel = 0;
 	}
 
@@ -49,19 +53,8 @@ public class GameController : MonoBehaviour {
 		// Check if the player reached a new level
 		if (retrievedAllItems)
 		{
-			StartCoroutine(Respawn());
-			levelText.transform.parent.gameObject.SetActive(true);
-			levelText.guiText.text = "Level " + currentLevel.ToString();
-			retrievedAllItems = false;
-
-			StartCoroutine(ShutOffGUI());
+            StartCoroutine(NextLevel());
 		}
-	}
-
-	IEnumerator ShutOffGUI()
-	{
-		yield return new WaitForSeconds(3f);
-		levelText.transform.parent.gameObject.SetActive(false);
 	}
 
     IEnumerator OneOrTwoPlayers()
@@ -88,15 +81,43 @@ public class GameController : MonoBehaviour {
         {
             if (Input.GetButtonDown(Statics.AButton))
             {
-                foreach (GameObject go in GameObject.FindGameObjectsWithTag(Statics.Projectile))
-                {
-                    Destroy(go);
-                }
-                GameObject clone = Instantiate(goPlayer, Vector3.zero, Quaternion.identity) as GameObject;
-                GameObject.FindWithTag(Statics.ViewWindow).transform.position = Vector3.zero;
+                DoTheRespawning();
                 stilldead = false;
             }
             yield return null;
         }
+    }
+
+    void DoTheRespawning()
+    {
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag(Statics.Projectile))
+        {
+            Destroy(go);
+        }
+        GameObject clone = Instantiate(goPlayer, Vector3.zero, Quaternion.identity) as GameObject;
+        GameObject.FindWithTag(Statics.ViewWindow).transform.position = Vector3.zero;
+    }
+
+    IEnumerator NextLevel()
+    {
+        goGUI.SetActive(true);
+        levelText.guiText.text = "Level " + currentLevel.ToString();
+        retrievedAllItems = false;
+        Spawn.UpdateTimers();
+        Statics.gamePaused = true;
+        Destroy(GameObject.FindWithTag("Player"));
+        yield return new WaitForSeconds(3f);
+        DoTheRespawning();
+        Statics.gamePaused = false;
+        levelText.transform.parent.gameObject.SetActive(false);
+        SpawnNewItemAndLips();
+    }
+
+    void SpawnNewItemAndLips()
+    {
+        int index = Random.Range(0, Items.Count);
+        GameObject targetClone = Instantiate(Items[index], new Vector3(Random.Range(-Statics.widthInUnity / 2, Statics.widthInUnity / 2), Random.Range(-Statics.heightInUnity / 2, Statics.heightInUnity / 2), 0.0f), Quaternion.identity) as GameObject;
+        trnLips.position = new Vector3(Random.Range(-Statics.widthInUnity / 2, Statics.widthInUnity / 2), Random.Range(-Statics.heightInUnity / 2, Statics.heightInUnity / 2), 0.0f);
+        scriptItemTarget.ItemToReceive = Items[index].gameObject.name;
     }
 }

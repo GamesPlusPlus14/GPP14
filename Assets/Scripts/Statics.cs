@@ -18,10 +18,11 @@ public class Statics : MonoBehaviour
     public static readonly string Projectile = "Projectile";
 
     public static bool onePlayer { get; set;}
-
+    public static bool gamePaused { get; set; }
     public static float heightInUnity { get; set; }
     public static float widthInUnity { get; set; }
     public static bool playerIsDead { get; set; }
+    public static float currentLevel = 1;
 
     void Awake()
     {

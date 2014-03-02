@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class Spawn : MonoBehaviour {
 
     public List<GameObject> PrefabToSpawn = new List<GameObject>();
-	public float MinSpawnTimer;
-	public float MaxSpawnTimer;
+	private static float MinSpawnTimer = 6;
+	private static float MaxSpawnTimer = 12;
 	
 	float spawnTimer;
 	float timer;
@@ -14,6 +14,8 @@ public class Spawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+        MinSpawnTimer = 6;
+        MaxSpawnTimer = 12;
 		spawnTimer = Random.Range(MinSpawnTimer, MaxSpawnTimer);
 		// Debugging (check if min is greater than max)
 		if (MinSpawnTimer > MaxSpawnTimer)
@@ -26,18 +28,29 @@ public class Spawn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		timer += Time.deltaTime;
+        if (!Statics.gamePaused)
+        {
+            timer += Time.deltaTime;
 
-		if (timer >= spawnTimer)
-		{
-            int index = Random.Range(0, PrefabToSpawn.Count);
-			Instantiate(PrefabToSpawn[index], transform.position, Quaternion.identity);
-			timer = 0;
-		}
-
+            if (timer >= spawnTimer)
+            {
+                int index = Random.Range(0, PrefabToSpawn.Count);
+                Instantiate(PrefabToSpawn[index], transform.position, Quaternion.identity);
+                timer = 0;
+            }
+        }
 	}
 	void OnDrawGizmos()
 	{
 		Gizmos.DrawIcon(transform.position, "spawnGizmo.png");
 	}
+
+    public static void UpdateTimers()
+    {
+        if (MinSpawnTimer > 1)
+        {
+            MinSpawnTimer--;
+            MaxSpawnTimer = MinSpawnTimer * 2.0f;
+        }
+    }
 }

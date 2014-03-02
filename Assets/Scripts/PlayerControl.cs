@@ -27,7 +27,8 @@ public class PlayerControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        HandleInput();
+        if(!Statics.gamePaused)
+            HandleInput();
 	}
 
     void HandleInput()
@@ -47,7 +48,7 @@ public class PlayerControl : MonoBehaviour {
         }
         else
         {
-            moveWindow = new Vector2(Input.GetAxisRaw(Statics.WHorz), Input.GetAxisRaw(Statics.WVert)).normalized * playerSpeed * Time.deltaTime;
+            moveWindow = new Vector2(Input.GetAxisRaw(Statics.WHorz), Input.GetAxisRaw(Statics.WVert)).normalized * windowSpeed * Time.deltaTime;
         }
        
         if (NextMoveInBounds(transWindow, moveWindow, transWindow.localScale.x/2.0f, transWindow.localScale.y/2.0f))

@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
-  windowSpeed: 200
+  windowSpeed: 250
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
